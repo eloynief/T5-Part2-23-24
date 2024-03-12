@@ -2,9 +2,9 @@ package ej1;
 
 public class Alumno {
 	
-	private String nombre;
+	private String nombre="";
 	
-	private int notaMedia;
+	private int notaMedia=0;
 
 	
 	
@@ -38,6 +38,13 @@ public class Alumno {
 	public void setNotaMedia(int notaMedia) {
 		this.notaMedia = notaMedia;
 	}
+
+	@Override
+	public String toString() {
+		return "Alumno [nombre=" + nombre + ", notaMedia=" + notaMedia + "]";
+	}
+	
+	
 	
 	
 	
