@@ -1,131 +1,172 @@
 package ej2;
 
-import java.util.Scanner;
-
 public class GESTISIMAL {
-
 	
 	/**
-	 * titulo del producto
+	 * 
+	 * Se crea un array GESTISIMAL
 	 */
-	private int codigo=0;
-
-	/**
-	 * descripcion del producto
-	 */
-	private String descripcion="";
-
-	/**
-	 * precio de compra
-	 */
-	private double precioCompra=0;
-
-	/**
-	 * precio de venta
-	 */
-	private double precioVenta=0;
+	Articulo[] gest=new Articulo[20];
+	
 	
 	/**
-	 * nº de unidades
+	 * llena los valores del array con los valores por defecto
 	 */
-	private int stock=0;
+	public void llenaValores() {
 
+		for(int i=0;i<gest.length;i++) {
+			//imprime los quee no sean null
+			if(gest[i]==null) {
+				//
+				gest[i]=new Articulo();
+			}
+			
+		}
+	}
+	
+	
 	
 	/**
-	 * constructor vacio
+	 * 
 	 */
-	public GESTISIMAL() {
+	public void listado() {
 		
-	}
-	
-	
-	public GESTISIMAL(int codigo, String descripcion, double precioCompra, double precioVenta, int stock) {
-//		super();
-		this.codigo = codigo;
-		this.descripcion = descripcion;
-		this.precioCompra = precioCompra;
-		this.precioVenta = precioVenta;
-		this.stock = stock;
-	}
-
-
-	public int getCodigo() {
-		return codigo;
-	}
-
-
-	public void setTitulo(int codigo) {
-		
-		if(codigo>0) {
-
-			this.codigo = codigo;
+		for(int i=0;i<gest.length;i++) {
+			//imprime los quee no sean null
+			if(gest[i].getCodigo()!=0) {
+				//
+				System.out.println(gest[i].toString());
+			}
 			
 		}
 		
 	}
-
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-
-	public void setDescripcion(String descripcion) {
-		if(descripcion!=""||descripcion!=null) {
-			this.descripcion = descripcion;
-		}
-	}
-
-
-	public double getPrecioCompra() {
-		return precioCompra;
-	}
-
-
-	public void setPrecioCompra(double precioCompra) {
-
-		if(precioCompra>0) {
-			this.precioCompra = precioCompra;
+	
+	/**
+	 * 
+	 * @param codigo recibe el codigo escrito por pantalla
+	 * @param desc
+	 * @param precioCompra
+	 * @param precioVenta
+	 * @param stock
+	 * @return si el codigo no esta, devuelve true y añade en el array el producto nuevo
+	 */
+	public boolean alta(Articulo art) {
+		//boolean que se devuelve
+		boolean respuesta=false;
+		int i=0;
+		
+		while(i<gest.length&&!respuesta) {
+			// si no es null y es igual
+			if(gest[i]!=null&&gest[i].equals(art)) {
+				
+			}
+			
 		}
 		
-	}
-
-
-	public double getPrecioVenta() {
-		return precioVenta;
-	}
-
-
-	public void setPrecioVenta(double precioVenta) {
 		
-		if(precioVenta>0) {
-			this.precioVenta = precioVenta;
+		
+		
+		
+		//se devuelve la respuesta
+		return respuesta;
+	}
+	
+	
+	public boolean baja(int codigo) {
+		
+		boolean respuesta=false;
+		
+		for(int i=0;i<gest.length;i++) {
+			//si coincide con el codigo que pedistes
+			if(codigo==gest[i].getCodigo()) {
+				
+				respuesta=true;
+				
+				//hace la accion del recolector de basura
+				gest[i]=new Articulo();
+				//hace break
+				break;
+			}
+		}
+		return respuesta;
+	}
+	
+	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	public boolean modificacion(int codigo) {
+		
+		//
+		boolean esModificado=false;
+		
+		//
+		for(int i=0;i<gest.length;i++) {
+			
+			//
+			if(gest[i].getCodigo()==codigo) {
+				
+				
+				
+				
+				
+			}
+			
 		}
 		
-	}
-
-
-	public int getStock() {
-		return stock;
-	}
-
-
-	public void setStock(int stock) {
-		if(stock>=0) {
-			this.stock = stock;
-		}
-	}
-
-
-	@Override
-	public String toString() {
-		return "GESTISIMAL [titulo=" + codigo + ", descripcion=" + descripcion + ", precioCompra=" + precioCompra
-				+ ", precioVenta=" + precioVenta + ", stock=" + stock + "]";
+		//
+		return esModificado;
 	}
 	
+	public boolean entradaMercancia(int codigo,int cantidad) {
+
+		//
+		boolean esModificado=false;
+		
+
+		return esModificado;
+		
+	}
 	
-	
-	
+	/**
+	 * 
+	 * @param codigo
+	 * @param cantidad
+	 * @return true si hizo la accion de resta, false si no la hizo
+	 */
+	public boolean salidaMercancia(int codigo,int cantidad) {
+		
+
+		//
+		boolean esModificado=false;
+
+		//
+		for(int i=0;i<gest.length;i++) {
+			
+			//
+			if(gest[i].getCodigo()==codigo) {
+				
+				
+				//si se puede hacer la accion
+				if(cantidad<gest[i].getStock()&&cantidad>0) {
+					//se vuelve true
+					esModificado=true;
+					
+					//se le da el valor del stock al stock - cantidad que quieres obtener
+					gest[i].setStock(gest[i].getStock()-cantidad);
+					
+				}//final if cantidad<gest[i].getStock()&&cantidad>0
+			}//final if gest[i].getCodigo()==codigo
+			
+		}//final for int i=0;i<gest.length;i++
+		
+
+		return esModificado;
+		
+	}
 	
 	
 	

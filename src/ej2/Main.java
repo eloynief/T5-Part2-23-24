@@ -11,7 +11,7 @@ public class Main {
 //		GESTISIMAL gest=new GESTISIMAL();
 		
 		//se crea objeto de la clase ArrayAlmacen para modificar su array de GESTISIMAL
-		ArrayAlmacen array= new ArrayAlmacen();
+		GESTISIMAL array= new GESTISIMAL();
 		
 		
 		//objeto scanner
