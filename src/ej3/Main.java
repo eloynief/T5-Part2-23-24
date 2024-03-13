@@ -39,6 +39,12 @@ public class Main {
 			
 			case 1:{
 				
+				//
+				System.out.println("");
+				
+				
+				
+				
 			}
 			
 			case 2:{
@@ -53,9 +59,10 @@ public class Main {
 				
 			}
 			
-			case 4:{
-				
-			}
+			//no hace falta
+//			case 4:{
+//				
+//			}
 			
 			
 			}
@@ -67,14 +74,15 @@ public class Main {
 	
 
 	public static void menu() {
-		System.out.println("ALUMNOS/AS");
+		System.out.println("PISSAS / AS");
 		System.out.println("===================");
 		System.out.println("1 Listado de Pizzas.");
 		System.out.println("2 Nuevo Pedido.");
 		System.out.println("3 Pizza servida.");
 		System.out.println("4 Salir.");
-		System.out.println("5 Nada.");
-		System.out.println("");
+//		System.out.println("5 Nada.");
+//		System.out.println("6. Hacer el capuyo");
+//		System.out.println("69 SEXOOOOOOOOO");
 	}
 
 }

@@ -1,5 +1,8 @@
 package ej3;
 
+/**
+ * Clase que contiene los atributos de la pizza
+ */
 public class Pizza {
 
 	/**
@@ -10,25 +13,29 @@ public class Pizza {
 	/**
 	 * 
 	 */
-	private enum tamano {
+	private enum Tamano {
 			Mediana, Familiar	
 	};
 	
+	Tamano tamano;
+	
 	/**
 	 * 
 	 */
-	private enum tipo {
+	private enum Tipo {
 		Margarita, CuatroQuesos, Funghi		
 	};
 	
+	Tipo tipo;
+	
 	/**
 	 * 
 	 */
-	private enum estado {
+	private enum Estado {
 		Perdida,Servida	
 	}
 
-	
+	Estado estado;
 	
 	
 	
@@ -44,10 +51,34 @@ public class Pizza {
 
 
 
+	public int getCodigo() {
+		return codigo;
+	}
+
+
+
+
+
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+
+	
+
+
+
 	@Override
 	public String toString() {
+		
+		
+		
 		String str="";
 		str+="Codigo: "+codigo+"\n";
+		str+="Tamano: "+tamano+"\n";
+		str+="Tipo: "+tipo+"\n";
+		str+="ESTATUS brrrr: "+estado+"\n";
 		
 		
 		
