@@ -87,7 +87,7 @@ public class GESTISIMAL {
 	}
 	
 	/**
-	 * 
+	 * Baja: Borra el articulo pedido
 	 * @param codigo
 	 * @return
 	 */
@@ -123,9 +123,8 @@ public class GESTISIMAL {
 	 * @param codigo
 	 * @return
 	 */
-	public static boolean modificacion(int codigoPasado, int codigo, String descripcion, int precioCompra, int precioVenta, int stock) {
+	public static boolean modificacion(Articulo artActual,Articulo artNuevo) {
 		
-		Articulo art;
 		
 		//
 		boolean esModificado=false;
@@ -134,14 +133,18 @@ public class GESTISIMAL {
 		for(int i=0;i<arrayArticulos.length&&!esModificado;i++) {
 			
 			//si el valor buscado existe
-			if (!arrayArticulos[i].equals(null) && arrayArticulos[i].getCodigo()==codigoPasado) {
+			if (!arrayArticulos[i].equals(null) && arrayArticulos[i]==artActual) {
 				
-				//le asigamos el valor
-				arrayArticulos[i].setCodigo(codigo);
-				arrayArticulos[i].setStock(stock);
-				arrayArticulos[i].setDescripcion(descripcion);
-				arrayArticulos[i].setPrecioCompra(precioCompra);
-				arrayArticulos[i].setStock(stock);
+				//le asigamos el valor del articulo nuevo a la posicion del array mediante la llamada de sus metodos
+				arrayArticulos[i].setCodigo(artNuevo.getCodigo());
+				arrayArticulos[i].setDescripcion(artNuevo.getDescripcion());
+				arrayArticulos[i].setPrecioCompra(artNuevo.getPrecioCompra());
+				arrayArticulos[i].setPrecioVenta(artNuevo.getPrecioVenta());
+				arrayArticulos[i].setStock(artNuevo.getStock());
+				
+				//asignamos true a es modificado despues de hacer la accion
+				esModificado=true;
+				
 			}
 			
 		}
@@ -156,10 +159,31 @@ public class GESTISIMAL {
 	 * @param cantidad
 	 * @return
 	 */
-	public static boolean entradaMercancia(int codigo,int cantidad) {
+	public static boolean entradaMercancia(Articulo art,int cantStock) {
 
 		//
 		boolean esModificado=false;
+		
+		//int que recoge el valor del stock del array
+		int stockArray=0;
+
+		for(int i=0;i<arrayArticulos.length&&!esModificado;i++) {
+
+			//si el valor buscado existe
+			if (!arrayArticulos[i].equals(null) && arrayArticulos[i]==art) {
+				
+				//asginamos el valor del stock a la variable
+				stockArray=arrayArticulos[i].getStock();
+				
+				//se asigna el valor del stock a la posicion del array
+				arrayArticulos[i].setStock(stockArray+cantStock);
+				
+				//se asigna true una vez modificado
+				esModificado=true;
+			}
+			
+			
+		}
 		
 		//
 		return esModificado;

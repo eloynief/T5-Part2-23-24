@@ -154,8 +154,9 @@ public class Articulo {
 		boolean sonIguales=false;
 		
 		Articulo art=(Articulo)obj;
-		
-		if(art.equals(obj)) {
+		//se igualan mediante el codigo
+		//si los codigos coinciden, los articulos son iguales
+		if(this.codigo==art.codigo) {
 			sonIguales=true;
 		}
 		

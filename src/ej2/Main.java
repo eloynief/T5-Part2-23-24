@@ -3,6 +3,9 @@ package ej2;
 import java.util.Scanner;
 
 public class Main {
+	
+	//objeto tipo scanner
+	public static Scanner sc=new Scanner(System.in);
 
 	public static void main(String[] args) {
 		
@@ -11,13 +14,11 @@ public class Main {
 //		GESTISIMAL gest=new GESTISIMAL();
 		
 		//se crea objeto de la clase Articulo para modificar el array de GESTISIMAL
-		Articulo array;
+		Articulo array = null;
 
 		//se crea objeto de la clase Articulo para modificar el array de GESTISIMAL
 		Articulo array2= new Articulo();
 		
-		//objeto scanner
-		Scanner sc=new Scanner(System.in);
 		
 		int codigo=0;
 		
@@ -53,38 +54,11 @@ public class Main {
 			
 			case 2:{
 				
-				//te pide los datos para introducir
-				System.out.println("Dime el codigo: ");
+				//pedimos los valores de las variables tipo objeto
+				array = pedirValores();
 				
-				codigo=sc.nextInt();
-				
-				//
-				System.out.println("Dime la descripcion: ");
-
-				descripcion=sc.nextLine();
-
-				
-				//
-				System.out.println("Dime el precioCompra: ");
-
-				precioCompra=sc.nextDouble();
-				
-				
-				//
-				System.out.println("Dime el precioVenta: ");
-
-				precioVenta=sc.nextDouble();
-
-				//
-				System.out.println("Dime el stock: ");
-
-				stock=sc.nextInt();
-				
-				
-				
-				
-				//
-				array=new Articulo(codigo, descripcion, precioCompra, precioVenta, stock);
+				//pedimos los valores de las variables tipo objeto
+				array2 = pedirValores();
 				
 				if(GESTISIMAL.alta(array)){
 					System.out.println("El producto se ha añadido correctamente");
@@ -101,9 +75,10 @@ public class Main {
 				
 				codigo=sc.nextInt();
 				
+				
 
 				if(GESTISIMAL.baja(array)){
-					System.out.println("El producto se ha añadido correctamente");
+					System.out.println("El producto se ha eliminado correctamente");
 				}
 				
 
@@ -111,7 +86,10 @@ public class Main {
 			}
 			
 			case 4:{
-
+				
+				
+				
+				
 				break;
 			}
 			
@@ -135,6 +113,48 @@ public class Main {
 			
 		}while (opcion!=4);
 			
+	}
+
+	private static Articulo pedirValores() {
+		Articulo array;
+		int codigo;
+		String descripcion;
+		double precioCompra;
+		double precioVenta;
+		int stock;
+		//te pide los datos para introducir
+		System.out.println("Dime el codigo: ");
+		
+		codigo=sc.nextInt();
+		
+		//
+		System.out.println("Dime la descripcion: ");
+
+		descripcion=sc.nextLine();
+
+		
+		//
+		System.out.println("Dime el precioCompra: ");
+
+		precioCompra=sc.nextDouble();
+		
+		
+		//
+		System.out.println("Dime el precioVenta: ");
+
+		precioVenta=sc.nextDouble();
+
+		//
+		System.out.println("Dime el stock: ");
+
+		stock=sc.nextInt();
+		
+		
+		
+		
+		//
+		array=new Articulo(codigo, descripcion, precioCompra, precioVenta, stock);
+		return array;
 	}
 	
 	public static void menu() {
