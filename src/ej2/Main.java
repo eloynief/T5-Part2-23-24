@@ -10,9 +10,11 @@ public class Main {
 //		GESTIMAL objeto para modificar su array de dentro
 //		GESTISIMAL gest=new GESTISIMAL();
 		
-		//se crea objeto de la clase ArrayAlmacen para modificar su array de GESTISIMAL
-		GESTISIMAL array= new GESTISIMAL();
-		
+		//se crea objeto de la clase Articulo para modificar el array de GESTISIMAL
+		Articulo array;
+
+		//se crea objeto de la clase Articulo para modificar el array de GESTISIMAL
+		Articulo array2= new Articulo();
 		
 		//objeto scanner
 		Scanner sc=new Scanner(System.in);
@@ -26,8 +28,6 @@ public class Main {
 		double precioVenta=0;
 		
 		int stock=0;
-		
-		array.llenaValores();
 		
 		int opcion=0;
 		
@@ -44,18 +44,19 @@ public class Main {
 			
 			case 1:{
 				
-				array.listado();
+				//muestra el listado
+				GESTISIMAL.listado();
+				
+				//cierra los casos
 				break;
 			}
 			
 			case 2:{
-				//
+				
+				//te pide los datos para introducir
 				System.out.println("Dime el codigo: ");
 				
 				codigo=sc.nextInt();
-
-				sc.nextLine();
-				
 				
 				//
 				System.out.println("Dime la descripcion: ");
@@ -79,13 +80,17 @@ public class Main {
 
 				stock=sc.nextInt();
 				
-				//si se modifica
-				if(array.alta(codigo, descripcion, precioCompra, precioVenta, stock)) {
+				
+				
+				
+				//
+				array=new Articulo(codigo, descripcion, precioCompra, precioVenta, stock);
+				
+				if(GESTISIMAL.alta(array)){
 					System.out.println("El producto se ha añadido correctamente");
 				}
-				else {
-					System.out.println("El codigo del producto ya existe o es 0");
-				}
+				
+				
 
 				break;
 			}
@@ -96,9 +101,11 @@ public class Main {
 				
 				codigo=sc.nextInt();
 				
-				if(array.baja(codigo)){
-					System.out.println("El producto se ha dado de baja");
+
+				if(GESTISIMAL.baja(array)){
+					System.out.println("El producto se ha añadido correctamente");
 				}
+				
 
 				break;
 			}

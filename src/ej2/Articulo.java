@@ -68,7 +68,7 @@ public class Articulo {
 	}
 
 
-	public void setTitulo(int codigo) {
+	public void setCodigo(int codigo) {
 		
 		if(codigo>0) {
 
@@ -130,6 +130,8 @@ public class Articulo {
 		}
 	}
 
+	
+	
 
 	/**
 	 * Metodo que muestra las variables de la clase cuando haces syso
