@@ -78,7 +78,7 @@ public class Main {
 				
 				
 				//
-				if(GESTISIMAL.baja(array)){
+				if(GESTISIMAL.baja(codigo)){
 					System.out.println("El producto se ha eliminado correctamente");
 				}
 				
