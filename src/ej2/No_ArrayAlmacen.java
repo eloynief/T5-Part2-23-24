@@ -1,6 +1,6 @@
 package ej2;
 
-public class ArrayAlmacen {
+public class No_ArrayAlmacen {
 	
 	/**
 	 * 
