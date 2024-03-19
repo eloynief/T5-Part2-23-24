@@ -87,11 +87,11 @@ public class GESTISIMAL {
 	}
 	
 	/**
-	 * Baja: Borra el articulo pedido
+	 * Baja: Borra el articulo pedido segun el codigo que le paso
 	 * @param codigo
 	 * @return
 	 */
-	public static boolean baja(Articulo art) {
+	public static boolean baja(int codigo) {
 		
 		//
 		boolean respuesta=false;
@@ -100,7 +100,7 @@ public class GESTISIMAL {
 		for(int i=0;i<arrayArticulos.length&&!respuesta;i++) {
 			
 			//si coincide con el articulo que pedistes
-			if(art.equals(arrayArticulos[i])) {
+			if(arrayArticulos[i].getCodigo()==codigo) {
 				
 				//hace true la respuesta
 				respuesta=true;
