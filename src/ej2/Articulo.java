@@ -144,8 +144,15 @@ public class Articulo {
 	 */
 	@Override
 	public String toString() {
-		return "Articulo [titulo=" + codigo + ", descripcion=" + descripcion + ", precioCompra=" + precioCompra
-				+ ", precioVenta=" + precioVenta + ", stock=" + stock + "]";
+		String respuesta="";
+		
+		respuesta+="Codigo: "+codigo+"\n";
+		respuesta+="descripcion: "+descripcion+"\n";
+		respuesta+="Precio de Compra: "+precioCompra+"\n";
+		respuesta+="Precio de Venta: "+precioVenta+"\n";
+		respuesta+="Stock: "+stock+"\n";
+		
+		return respuesta;
 	}
 	
 	

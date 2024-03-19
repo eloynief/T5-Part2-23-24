@@ -71,7 +71,7 @@ public class GESTISIMAL {
 		//recorre mientras que la respuesta sea false o hasta que acabe de recorrer toda la tabla
 		for(int i=0;i<arrayArticulos.length&&!respuesta;i++) {
 			//comprobamos si es null
-			if(arrayArticulos[i]==null&&!arrayArticulos[i].equals(art)) {
+			if(arrayArticulos[i]==null) {
 				//se añade el articulo
 				arrayArticulos[i]=art;
 				//se vuelve true la respuesta
@@ -155,11 +155,11 @@ public class GESTISIMAL {
 	
 	/**
 	 * 
-	 * @param codigo
-	 * @param cantidad
+	 * @param codigo valor escrito que le pasamos
+	 * @param cantStock
 	 * @return
 	 */
-	public static boolean entradaMercancia(Articulo art,int cantStock) {
+	public static boolean entradaMercancia(int codigo,int cantStock) {
 
 		//
 		boolean esModificado=false;
@@ -170,7 +170,7 @@ public class GESTISIMAL {
 		for(int i=0;i<arrayArticulos.length&&!esModificado;i++) {
 
 			//si el valor buscado existe
-			if (!arrayArticulos[i].equals(null) && arrayArticulos[i]==art) {
+			if (!arrayArticulos[i].equals(null) && arrayArticulos[i].getCodigo()==codigo) {
 				
 				//asginamos el valor del stock a la variable
 				stockArray=arrayArticulos[i].getStock();
@@ -183,6 +183,7 @@ public class GESTISIMAL {
 			}
 			
 			
+			
 		}
 		
 		//
@@ -192,36 +193,42 @@ public class GESTISIMAL {
 	
 	/**
 	 * 
-	 * @param codigo
-	 * @param cantidad
+	 * @param codigo valor de codigo que le pasamos
+	 * @param cantStock
 	 * @return true si hizo la accion de resta, false si no la hizo
 	 */
-	public static boolean salidaMercancia(int codigo,int cantidad) {
+	public static boolean salidaMercancia(int codigo,int cantStock) {
 		
-
 		//
 		boolean esModificado=false;
 
-		//
-		for(int i=0;i<arrayArticulos.length;i++) {
-			
-			//
-			if(arrayArticulos[i].getCodigo()==codigo) {
-				
-				
-				//si se puede hacer la accion
-				if(cantidad<arrayArticulos[i].getStock()&&cantidad>0) {
-					//se vuelve true
-					esModificado=true;
-					
-					//se le da el valor del stock al stock - cantidad que quieres obtener
-					arrayArticulos[i].setStock(arrayArticulos[i].getStock()-cantidad);
-					
-				}//final if cantidad<gest[i].getStock()&&cantidad>0
-			}//final if gest[i].getCodigo()==codigo
-			
-		}//final for int i=0;i<gest.length;i++
+		//int que recoge el valor del stock del array
+		int stockArray=0;
 		
+		//
+		for(int i=0;i<arrayArticulos.length&&!esModificado;i++) {
+
+			//si el valor buscado existe
+			if (!arrayArticulos[i].equals(null) && arrayArticulos[i].getCodigo()==codigo) {
+
+				//asginamos el valor del stock a la variable
+				stockArray=arrayArticulos[i].getStock();
+				
+				//si la cantidad de stock que queremos sacar es menor que el stock del array
+				if(cantStock<=stockArray) {
+					
+					//teniendo en cuenta de que el stock no se volvera negativo
+					//se asigna el valor del stock a la posicion del array
+					arrayArticulos[i].setStock(stockArray-cantStock);
+					
+					//se asigna true una vez modificado
+					esModificado=true;
+				}
+			}
+			
+			
+			
+		}
 
 		return esModificado;
 		

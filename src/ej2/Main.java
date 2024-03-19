@@ -58,7 +58,7 @@ public class Main {
 				array = pedirValores();
 				
 				//pedimos los valores de las variables tipo objeto
-				array2 = pedirValores();
+				//array2 = pedirValores();
 				
 				if(GESTISIMAL.alta(array)){
 					System.out.println("El producto se ha añadido correctamente");
@@ -73,10 +73,11 @@ public class Main {
 				//
 				System.out.println("Dime el codigo del producto a dar de baja: ");
 				
+				//
 				codigo=sc.nextInt();
 				
 				
-
+				//
 				if(GESTISIMAL.baja(array)){
 					System.out.println("El producto se ha eliminado correctamente");
 				}
@@ -87,31 +88,75 @@ public class Main {
 			
 			case 4:{
 				
+				//
+
+				//pedimos los valores de las variables tipo objeto
+				array = pedirValores();
 				
+				//pedimos los valores de las variables tipo objeto
+				array2 = pedirValores();
 				
+				//
+				if(GESTISIMAL.modificacion(array, array2)) {
+					System.out.println("El articulo se ha modificado correctamente");
+				}
 				
 				break;
 			}
 			
 			case 5:{
-
+				
+				//
+				System.out.println("Escrirbe la cantidad de stock a aumentar:");
+				
+				//
+				stock=sc.nextInt();
+				
+				//
+				System.out.println("Introduce el codigo del articulo a modificar: ");
+				
+				//
+				codigo=sc.nextInt();
+				
+				//
+				if(GESTISIMAL.entradaMercancia(codigo, stock)) {
+					System.out.println("El stock se ha modificado correctamente.");
+				}
+				
 				break;
 			}
 			
 			case 6:{
-
+				
+				//
+				System.out.println("Escrirbe la cantidad de stock a aumentar:");
+				
+				//
+				stock=sc.nextInt();
+				
+				//
+				System.out.println("Introduce el codigo del articulo a modificar: ");
+				
+				//
+				codigo=sc.nextInt();
+				
+				//
+				if(GESTISIMAL.salidaMercancia(codigo, stock)) {
+					System.out.println("El stock se ha modificado correctamente.");
+				}
+				
 				break;
 			}
 			
 			case 7:{
-
+				System.out.println("Saliendo del programa...");
 				break;
 			}
 			
 			
 			}
 			
-		}while (opcion!=4);
+		}while (opcion!=7);
 			
 	}
 
@@ -126,6 +171,8 @@ public class Main {
 		System.out.println("Dime el codigo: ");
 		
 		codigo=sc.nextInt();
+		
+		sc.nextLine();
 		
 		//
 		System.out.println("Dime la descripcion: ");
@@ -158,7 +205,7 @@ public class Main {
 	}
 	
 	public static void menu() {
-		System.out.println("ALUMNOS/AS");
+		System.out.println("Artículos");
 		System.out.println("===================");
 		System.out.println("1 Listado.");
 		System.out.println("2 Alta.");
