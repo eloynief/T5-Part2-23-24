@@ -4,46 +4,102 @@ package ej3;
  * Clase que contiene los atributos de la pizza
  */
 public class Pizza {
-
-	/**
-	 * 
+	/*
+	 * Enumerados
 	 */
-	private int codigo=0;
-
+	
 	/**
-	 * 
+	 * Enum para tamano
 	 */
 	private enum Tamano {
 			Mediana, Familiar	
 	};
 	
-	Tamano tamano;
-	
 	/**
-	 * 
+	 * enum de Tipo
 	 */
 	private enum Tipo {
 		Margarita, CuatroQuesos, Funghi		
 	};
 	
-	Tipo tipo;
-	
 	/**
-	 * 
+	 * Enum de Estado
 	 */
 	private enum Estado {
-		Perdida,Servida	
+		Pedida,Servida	
 	}
+	
+	/*
+	 * Atributos
+	 */
+	
+	/**
+	 * atributo tipo int
+	 */
+	private int codigo=0;
 
-	Estado estado;
+
+	/*
+	 * atributo tipo Tamano
+	 */
+	Tamano tamano;
 	
 	
+	/*
+	 * atributo tipo Tipo
+	 */
+	Tipo tipo;
 	
 	
-	public Pizza(int codigo) {
+	/*
+	 * atributo tipo Estado
+	 */
+	Estado estado=Estado.Pedida;
+	
+	
+	/*
+	 * Constructores
+	 */
+	
+	public Pizza() {
 		//elena te pìde que no lo pongas porque es superclase
 //		super();
-		this.codigo = codigo;
+	}
+
+
+	
+	
+	
+	
+	
+	/**
+	 * Constructor con todos los parametros
+	 * @param codigo
+	 * @param tamano
+	 * @param tipo
+	 * @param estado
+	 */
+	public Pizza(int codigo, String tamano, String tipo, String estado) {
+		//
+		if(codigo>=0) {
+			//
+			this.codigo = codigo;
+		}
+		
+		if(tamano!=null&&!tamano.equals("")) {
+			//
+			this.tamano = Tamano.valueOf(tamano);
+		}
+		
+		if(tipo!=null&&!tipo.equals("")) {
+			//
+			this.tipo = Tipo.valueOf(tipo);
+		}
+
+		if(estado!=null&&!estado.equals("")) {
+			//
+			this.estado = Estado.valueOf(estado);
+		}
 	}
 
 
@@ -51,21 +107,100 @@ public class Pizza {
 
 
 
+
+
+	/*
+	 * Getters/Setters
+	 */
+
+	/**
+	 * 
+	 * @return el codigo de la pizza
+	 */
 	public int getCodigo() {
 		return codigo;
 	}
 
-
-
-
-
-
+	/**
+	 * 
+	 * @param codigo codigo que le pasamos para modificar el codigo de la pizza
+	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
 
 	
+
+
+	/**
+	 * 
+	 * @return el enumerado del Tamano de pizza
+	 */
+	public Tamano getTamano() {
+		return tamano;
+	}
+
+
+
+
+
+	public void setTamano(String tamano) {
+		//
+		if(tamano!=null&&!tamano.equals("")) {
+			//
+			this.tamano = Tamano.valueOf(tamano);
+		}
+	}
+
+
+
+
+
+	/**
+	 * 
+	 * @return el enumerado del Tamano de pizza
+	 */
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+
+
+
+
+	public void setTipo(String tipo) {
+		//
+		if(tipo!=null&&!tipo.equals("")) {
+			//
+			this.tipo = Tipo.valueOf(tipo);
+		}
+	}
+
+
+
+
+
+	/**
+	 * 
+	 * @return el enumerado del Tamano de pizza
+	 */
+	public Estado getEstado() {
+		return estado;
+	}
+
+
+
+
+
+	public void setEstado(String estado) {
+		if(estado!=null&&!estado.equals("")) {
+			//
+			this.estado = Estado.valueOf(estado);
+		}
+	}
+
+
 
 
 
@@ -85,6 +220,12 @@ public class Pizza {
 		return str;
 	};
 	
+	
+	public boolean equals(Object obj) {
+		
+		
+		
+	}
 	
 	
 	

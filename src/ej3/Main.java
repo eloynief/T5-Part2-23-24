@@ -80,9 +80,6 @@ public class Main {
 		System.out.println("2 Nuevo Pedido.");
 		System.out.println("3 Pizza servida.");
 		System.out.println("4 Salir.");
-//		System.out.println("5 Nada.");
-//		System.out.println("6. Hacer el capuyo");
-//		System.out.println("69 SEXOOOOOOOOO");
 	}
 
 }
