@@ -203,7 +203,9 @@ public class Pizza {
 
 
 
-
+	/**
+	 * 
+	 */
 	@Override
 	public String toString() {
 		
@@ -220,11 +222,28 @@ public class Pizza {
 		return str;
 	};
 	
-	
+	/**
+	 * 
+	 * @param 
+	 * @return 
+	 */
+	@Override
 	public boolean equals(Object obj) {
+		//boolean que comprueba si son iguales
+		boolean comprobacion=false;
+		//Variable para guardar el cast de obj
+		Pizza pizza;
 		
+		pizza=(Pizza)obj;
 		
+		if(this.codigo==pizza.codigo) {
+			
+			comprobacion=true;
+			
+		}
 		
+		//se devuelve la comprobacion
+		return comprobacion;
 	}
 	
 	

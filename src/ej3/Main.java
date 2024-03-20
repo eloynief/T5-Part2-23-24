@@ -74,7 +74,7 @@ public class Main {
 	
 
 	public static void menu() {
-		System.out.println("PISSAS / AS");
+		System.out.println("PIZZAS");
 		System.out.println("===================");
 		System.out.println("1 Listado de Pizzas.");
 		System.out.println("2 Nuevo Pedido.");
