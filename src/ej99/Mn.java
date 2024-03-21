@@ -1,5 +1,5 @@
 package ej99;
 
-public class Moan {
+public class Mn {
 
 }
